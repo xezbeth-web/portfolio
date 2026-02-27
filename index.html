@@ -4,21 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Benmar Ramirez | Portfolio</title>
-    <meta name="description" content="Interactive portfolio showcasing front-end, full-stack, and automation work." />
+    <meta name="description" content="Front-end developer portfolio focused on clean UI systems, responsive experiences, and interaction design." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+
     <canvas id="trail-canvas" aria-hidden="true"></canvas>
-    <div class="grain" aria-hidden="true"></div>
+    <div class="grid-overlay" aria-hidden="true"></div>
+
+    <aside class="social-rail" aria-label="Social links">
+      <a href="https://github.com/xezbeth-web" target="_blank" rel="noreferrer">GH</a>
+      <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">IN</a>
+      <a href="mailto:benmarsimramirez@gmail.com">@</a>
+    </aside>
 
     <a class="home-fab" href="#top" aria-label="Go to home">⌂</a>
 
     <header class="topbar" id="top">
       <div class="container topbar__inner">
-        <a class="brand" href="https://github.com/xezbeth-web" target="_blank" rel="noreferrer">Benmar Ramirez</a>
+        <a class="brand" href="#home">Benmar Ramirez</a>
         <button class="menu-toggle" aria-label="Toggle menu">☰</button>
         <nav class="nav">
           <a href="#about">About</a>
@@ -34,11 +43,14 @@
     <main>
       <section class="hero container reveal" id="home">
         <div>
-          <p class="eyebrow">GRADUATING STUDENT · EST APRIL 2026</p>
-          <h1><span id="typing-verb">Building</span> <span>hyperfuturistic web systems</span> with clean architecture and intentional interaction.</h1>
+          <p class="eyebrow">FRONT-END DEVELOPER · MANILA</p>
+          <h1>
+            <span class="typing-shell"><span id="typing-verb">Building</span></span>
+            polished web experiences with frontend-first architecture.
+          </h1>
           <p>
-            I’m Benmar Ramirez — Front-End Developer Intern and Full-Stack Developer based in Manila.
-            I build interaction-first experiences, scalable product architecture, and automation-backed workflows.
+            I’m Benmar Ramirez — a Front-End Developer who builds responsive interfaces, performant landing pages,
+            and conversion-focused product experiences using modern JavaScript frameworks.
           </p>
         </div>
         <div class="hero-visual" aria-hidden="true">
@@ -56,83 +68,109 @@
         <div class="code-panel card">
           <div class="code-title">benmar.profile.ts</div>
           <div class="code-row"><span class="ln">01</span><span class="code">class <b>BenmarRamirez</b> {'{'}</span></div>
-          <div class="code-row"><span class="ln">02</span><span class="code">&nbsp;&nbsp;role = <em>'Front-End Developer Intern / Full-Stack Developer'</em></span></div>
-          <div class="code-row"><span class="ln">03</span><span class="code">&nbsp;&nbsp;location = <em>'Manila, Philippines'</em></span></div>
-          <div class="code-row"><span class="ln">04</span><span class="code">&nbsp;&nbsp;education = <em>'BS Computer Science (Software Technology)'</em></span></div>
-          <div class="code-row"><span class="ln">05</span><span class="code">&nbsp;&nbsp;expectedGraduation = <em>'April 2026'</em></span></div>
-          <div class="code-row"><span class="ln">06</span><span class="code">&nbsp;&nbsp;summary = <em>'Builds edtech, CMS, backend, and automation workflows'</em></span></div>
-          <div class="code-row"><span class="ln">07</span><span class="code">&nbsp;&nbsp;stack = [<em>'HTML/CSS/JS'</em>, <em>'React'</em>, <em>'Angular'</em>, <em>'Spring Boot'</em>, <em>'WordPress'</em>, <em>'MySQL'</em>]</span></div>
-          <div class="code-row"><span class="ln">08</span><span class="code">&nbsp;&nbsp;automation = [<em>'n8n'</em>, <em>'Zapier'</em>, <em>'API/Webhooks'</em>]</span></div>
-          <div class="code-row"><span class="ln">09</span><span class="code">&nbsp;&nbsp;hobbies = [<em>'League Coaching'</em>, <em>'Swimming'</em>, <em>'Pixel Art'</em>]</span></div>
-          <div class="code-row"><span class="ln">10</span><span class="code">&nbsp;&nbsp;experience = {'{'}</span></div>
-          <div class="code-row"><span class="ln">11</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;scintillant: <em>'Mind map + notation integration'</em>,</span></div>
-          <div class="code-row"><span class="ln">12</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;freelance: <em>'SEO-ready React/WordPress sites'</em>,</span></div>
-          <div class="code-row"><span class="ln">13</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;viq: <em>'Transcription & caption quality'</em>,</span></div>
-          <div class="code-row"><span class="ln">14</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;uaap: <em>'Esports operations manager'</em>,</span></div>
-          <div class="code-row"><span class="ln">15</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;ihd: <em>'React + TypeScript corporate build'</em>,</span></div>
-          <div class="code-row"><span class="ln">16</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;rjb: <em>'Digital asset analytics'</em></span></div>
-          <div class="code-row"><span class="ln">17</span><span class="code">&nbsp;&nbsp;projectYears = {'{'}</span></div>
-          <div class="code-row"><span class="ln">18</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;saffronPOS: <em>'2024'</em>, arrowsExpress: <em>'2023'</em>, stockSmart: <em>'2024'</em>,</span></div>
-          <div class="code-row"><span class="ln">19</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;beefTapa: <em>'2024'</em>, dlsuShuttle: <em>'2024'</em>, iHDWebsite: <em>'2025'</em>,</span></div>
-          <div class="code-row"><span class="ln">20</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;metroClinicWP: <em>'2024'</em>, automationFlows: <em>'2025-2026'</em></span></div>
-          <div class="code-row"><span class="ln">21</span><span class="code">&nbsp;&nbsp;{'}'}</span></div>
-          <div class="code-row"><span class="ln">22</span><span class="code">&nbsp;&nbsp;links = [<em>'LinkedIn'</em>, <em>'GitHub'</em>, <em>'Resume'</em>, <em>'Email'</em>]</span></div>
-          <div class="code-row"><span class="ln">23</span><span class="code">{'}'}</span></div>
+          <div class="code-row"><span class="ln">02</span><span class="code">&nbsp;&nbsp;role = <em>'Front-End Developer'</em></span></div>
+          <div class="code-row"><span class="ln">03</span><span class="code">&nbsp;&nbsp;focus = <em>'UI Systems · Interaction Design · Responsive Development'</em></span></div>
+          <div class="code-row"><span class="ln">04</span><span class="code">&nbsp;&nbsp;location = <em>'Manila, Philippines'</em></span></div>
+          <div class="code-row"><span class="ln">05</span><span class="code">&nbsp;&nbsp;education = <em>'BS Computer Science (Software Technology)'</em></span></div>
+          <div class="code-row"><span class="ln">06</span><span class="code">&nbsp;&nbsp;expectedGraduation = <em>'April 2026'</em></span></div>
+          <div class="code-row"><span class="ln">07</span><span class="code">&nbsp;&nbsp;frontend = [<em>'HTML/CSS'</em>, <em>'JavaScript'</em>, <em>'TypeScript'</em>, <em>'React'</em>, <em>'Angular'</em>]</span></div>
+          <div class="code-row"><span class="ln">08</span><span class="code">&nbsp;&nbsp;supporting = [<em>'WordPress'</em>, <em>'Spring Boot'</em>, <em>'MySQL'</em>, <em>'n8n'</em>]</span></div>
+          <div class="code-row"><span class="ln">09</span><span class="code">&nbsp;&nbsp;strengths = [<em>'Component Architecture'</em>, <em>'SEO Performance'</em>, <em>'Accessibility'</em>]</span></div>
+          <div class="code-row"><span class="ln">10</span><span class="code">{'}'}</span></div>
         </div>
       </section>
 
       <section class="container section reveal" id="experience">
         <h2 class="section-title">Experience</h2>
         <div class="timeline">
-          <article class="card"><h3>Scintillant Ventures <span>2026–Present</span></h3><p>Front-End Intern building education platform features, including dynamic visual learning interfaces.</p></article>
-          <article class="card"><h3>Freelance Web Developer <span>2024–Present</span></h3><p>Built and optimized websites with React, Angular, and WordPress with strong SEO and conversion foundations.</p></article>
-          <article class="card"><h3>iHD Philippines <span>2025</span></h3><p>Developed modular React + TypeScript corporate pages with maintainable component architecture.</p></article>
+          <article class="card">
+            <h3>Front-End Developer Intern · Scintillant Ventures <span>2026 – Present</span></h3>
+            <p>Developing frontend modules for an education platform, with emphasis on reusable components, adaptive layouts, and interactive learning UI patterns.</p>
+          </article>
+          <article class="card">
+            <h3>Freelance Front-End Web Developer <span>2024 – Present</span></h3>
+            <p>Delivered marketing websites and business platforms in React, Angular, and WordPress with strong Lighthouse performance, SEO structure, and mobile-first behavior.</p>
+          </article>
+          <article class="card">
+            <h3>Front-End Developer · iHD Philippines <span>2025 – 2025</span></h3>
+            <p>Built and shipped a corporate website using React + TypeScript, transforming static requirements into scalable sections and maintainable UI components.</p>
+          </article>
+          <article class="card">
+            <h3>Transcription & Captioning Specialist · VIQ Solutions <span>2024 – 2025</span></h3>
+            <p>Maintained high-quality subtitles and transcripts with strict formatting standards, improving communication clarity and accessibility across recorded media.</p>
+          </article>
+          <article class="card">
+            <h3>Esports Operations Manager · UAAP Esports <span>2023 – 2024</span></h3>
+            <p>Coordinated tournament operations and cross-team communications, reinforcing structured workflows and fast execution under event deadlines.</p>
+          </article>
         </div>
       </section>
 
       <section class="container section reveal" id="projects">
         <h2 class="section-title">Projects</h2>
-        <div class="project-constellation">
-          <article class="project-node n1"><div class="node-label"><span>05</span><strong>Saffron POS</strong></div><div class="thumb t1"></div><div class="meta"><h4>Saffron POS</h4><p>Java · Spring Boot · MySQL</p></div></article>
-          <article class="project-node n2"><div class="node-label"><span>06</span><strong>Arrows Express</strong></div><div class="thumb t2"></div><div class="meta"><h4>Arrows Express</h4><p>Spring Boot · MySQL · RBAC</p></div></article>
-          <article class="project-node n3"><div class="node-label"><span>07</span><strong>StockSmart</strong></div><div class="thumb t3"></div><div class="meta"><h4>StockSmart</h4><p>Java · Android SDK · SQLite</p></div></article>
-          <article class="project-node n4"><div class="node-label"><span>08</span><strong>Beef Tapa</strong></div><div class="thumb t4"></div><div class="meta"><h4>Beef Tapa Site</h4><p>WordPress · SEO · Front-End</p></div></article>
-          <article class="project-node n5"><div class="node-label"><span>09</span><strong>DLSU Shuttle</strong></div><div class="thumb t5"></div><div class="meta"><h4>DLSU Shuttle</h4><p>JavaScript · Web App</p></div></article>
-          <article class="project-node n6"><div class="node-label"><span>010</span><strong>iHD Website</strong></div><div class="thumb t6"></div><div class="meta"><h4>iHD Website</h4><p>React · TypeScript · Tailwind</p></div></article>
-          <article class="project-node n7"><div class="node-label"><span>011</span><strong>Metro Clinic</strong></div><div class="thumb t7"></div><div class="meta"><h4>Metro Clinic WP</h4><p>RankMath · Cache · CPT · Forms</p></div></article>
-          <article class="project-node n8"><div class="node-label"><span>012</span><strong>Automation Flows</strong></div><div class="thumb t8"></div><div class="meta"><h4>Ops Automation</h4><p>n8n · Zapier · Webhooks</p></div></article>
+        <div class="projects-grid">
+          <article class="project-showcase">
+            <h3 class="project-title">Saffron POS</h3>
+            <div class="project-media media-1"></div>
+            <p class="project-description">POS system with cashier workflows, inventory sync, and order lifecycle handling.</p>
+            <p class="project-stack"><b>Stack:</b> Java, Spring Boot, MySQL</p>
+          </article>
+          <article class="project-showcase">
+            <h3 class="project-title">Arrows Express</h3>
+            <div class="project-media media-2"></div>
+            <p class="project-description">Shipment tracking and role-based dashboards for dispatch and admin operations.</p>
+            <p class="project-stack"><b>Stack:</b> Spring Boot, MySQL, RBAC</p>
+          </article>
+          <article class="project-showcase">
+            <h3 class="project-title">StockSmart</h3>
+            <div class="project-media media-3"></div>
+            <p class="project-description">Android inventory app for stock movement, audit logs, and reporting snapshots.</p>
+            <p class="project-stack"><b>Stack:</b> Java, Android SDK, SQLite</p>
+          </article>
+          <article class="project-showcase">
+            <h3 class="project-title">iHD Website</h3>
+            <div class="project-media media-4"></div>
+            <p class="project-description">Responsive business website with modular sections and scalable page patterns.</p>
+            <p class="project-stack"><b>Stack:</b> React, TypeScript, Tailwind</p>
+          </article>
         </div>
       </section>
 
-
-      <section class="container section reveal" id="stack">
-        <h2 class="section-title">Skills Marquee</h2>
-        <div class="marquee"><div class="marquee__track">
-          <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"/>React</span>
-          <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular"/>Angular</span>
-          <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript"/>TypeScript</span>
-          <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"/>JavaScript</span>
-          <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot"/>Spring Boot</span>
-          <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg" alt="WordPress"/>WordPress</span>
-          <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"/>MySQL</span>
-          <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"/>Git</span>
-          <span><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/n8n.svg" alt="n8n"/>n8n</span>
-          <span><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/zapier.svg" alt="Zapier"/>Zapier</span>
-          <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"/>React</span>
-          <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular"/>Angular</span>
-          <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript"/>TypeScript</span>
-          <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"/>JavaScript</span>
-        </div></div>
+      <section class="section reveal" id="stack">
+        <h2 class="section-title container">Skills Marquee</h2>
+        <div class="marquee-full">
+          <div class="marquee__track">
+            <span>React</span><span>Angular</span><span>TypeScript</span><span>JavaScript</span><span>CSS3</span><span>Tailwind</span><span>WordPress</span><span>Spring Boot</span><span>MySQL</span><span>Git</span>
+            <span>React</span><span>Angular</span><span>TypeScript</span><span>JavaScript</span><span>CSS3</span><span>Tailwind</span><span>WordPress</span><span>Spring Boot</span><span>MySQL</span><span>Git</span>
+          </div>
+        </div>
       </section>
 
       <section class="container section reveal" id="contact">
         <div class="card cta">
-          <h2>Want to build in the present, for the future?</h2>
-          <p>I’m open for freelance work and collaborations for web products, business sites, and automation systems.</p>
-          <a class="cta-link" href="mailto:benmarsimramirez@gmail.com">benmarsimramirez@gmail.com</a>
+          <p class="cta-kicker">Let’s build your next frontend product</p>
+          <h2>Need a fast, polished, and user-first interface?</h2>
+          <p>I’m available for freelance and contract frontend work — landing pages, business websites, and web app UI implementation.</p>
+          <div class="cta-actions">
+            <a class="btn" href="mailto:benmarsimramirez@gmail.com">Email Me</a>
+            <a class="btn" href="https://github.com/xezbeth-web" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
         </div>
       </section>
     </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© 2026 Benmar Ramirez · Front-End Developer</p>
+        <nav class="footer-nav">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </footer>
 
     <button class="scroll-top" aria-label="Scroll to top">↑</button>
     <script src="script.js"></script>
