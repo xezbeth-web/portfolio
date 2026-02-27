@@ -4,6 +4,8 @@ const sections = [...document.querySelectorAll('main section[id]')];
 const navLinks = [...document.querySelectorAll('.nav a[href^="#"]')];
 const revealTargets = document.querySelectorAll('.reveal');
 const scrollBtn = document.querySelector('.scroll-top');
+const cursorDot = document.querySelector('.cursor-dot');
+const cursorRing = document.querySelector('.cursor-ring');
 
 const typingVerb = document.getElementById('typing-verb');
 const verbs = ['Building', 'Creating', 'Designing'];
@@ -36,6 +38,33 @@ function tickTyping() {
   setTimeout(tickTyping, deleting ? 70 : 100);
 }
 if (typingVerb) setTimeout(tickTyping, 900);
+
+if (cursorDot && cursorRing) {
+  let dotX = window.innerWidth / 2;
+  let dotY = window.innerHeight / 2;
+  let ringX = dotX;
+  let ringY = dotY;
+
+  window.addEventListener('mousemove', event => {
+    dotX = event.clientX;
+    dotY = event.clientY;
+    cursorDot.style.transform = `translate(${dotX}px, ${dotY}px)`;
+  });
+
+  function animateRing() {
+    ringX += (dotX - ringX) * 0.2;
+    ringY += (dotY - ringY) * 0.2;
+    cursorRing.style.transform = `translate(${ringX}px, ${ringY}px)`;
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  const interactiveElements = document.querySelectorAll('a, button, .project-showcase');
+  interactiveElements.forEach(element => {
+    element.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+    element.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+  });
+}
 
 if (menuToggle && nav) {
   menuToggle.addEventListener('click', () => nav.classList.toggle('open'));
