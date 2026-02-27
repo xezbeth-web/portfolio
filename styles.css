@@ -101,6 +101,13 @@ body {
 .t7 { background: linear-gradient(140deg, #fff3e4, #ffe2ba); }
 .t8 { background: linear-gradient(140deg, #e9f6ff, #ccecff); }
 
+
+.marquee { overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+.marquee__track { display: flex; gap: .7rem; width: max-content; padding: .9rem; animation: marquee 22s linear infinite; }
+.marquee__track span { display: inline-flex; align-items: center; gap: .45rem; border: 1px solid #c6d8ff; padding: .4rem .7rem; border-radius: 999px; background: #f7faff; color: #29416c; font-weight: 600; }
+.marquee__track img { width: 18px; height: 18px; }
+@keyframes marquee { from { transform: translateX(0);} to { transform: translateX(-50%);} }
+
 .cta { padding: 1.8rem; text-align: center; }
 .cta p { color: var(--muted); }
 .cta-link { color: var(--cyan); font-weight: 700; text-decoration: none; }

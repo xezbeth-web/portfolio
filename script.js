@@ -5,6 +5,38 @@ const navLinks = [...document.querySelectorAll('.nav a[href^="#"]')];
 const revealTargets = document.querySelectorAll('.reveal');
 const scrollBtn = document.querySelector('.scroll-top');
 
+const typingVerb = document.getElementById('typing-verb');
+const verbs = ['Building', 'Creating', 'Designing'];
+let verbIndex = 0;
+let charIndex = verbs[0].length;
+let deleting = false;
+
+function tickTyping() {
+  if (!typingVerb) return;
+  const word = verbs[verbIndex];
+
+  if (!deleting) {
+    charIndex += 1;
+    if (charIndex >= word.length) {
+      charIndex = word.length;
+      deleting = true;
+      setTimeout(tickTyping, 900);
+      return;
+    }
+  } else {
+    charIndex -= 1;
+    if (charIndex <= 0) {
+      deleting = false;
+      verbIndex = (verbIndex + 1) % verbs.length;
+      charIndex = 0;
+    }
+  }
+
+  typingVerb.textContent = word.slice(0, charIndex);
+  setTimeout(tickTyping, deleting ? 70 : 100);
+}
+if (typingVerb) setTimeout(tickTyping, 900);
+
 if (menuToggle && nav) {
   menuToggle.addEventListener('click', () => nav.classList.toggle('open'));
 }
