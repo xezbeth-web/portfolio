@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Benmar Ramirez | Portfolio</title>
+    <meta name="description" content="Interactive portfolio showcasing front-end, full-stack, and automation work." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas id="trail-canvas" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+
+    <a class="home-fab" href="#top" aria-label="Go to home">⌂</a>
+
+    <header class="topbar" id="top">
+      <div class="container topbar__inner">
+        <a class="brand" href="https://github.com/xezbeth-web" target="_blank" rel="noreferrer">Benmar Ramirez</a>
+        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+        <nav class="nav">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+          <a class="btn btn--small" href="https://drive.google.com/file/d/13a4_P_phCve5-CR53nf-YvCSuYZga7jw/view?usp=sharing" target="_blank" rel="noreferrer">Resume ↗</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero container reveal" id="home">
+        <div>
+          <p class="eyebrow">GRADUATING STUDENT · EST APRIL 2026</p>
+          <h1>Building <span>hyperfuturistic web systems</span> with clean architecture and intentional interaction.</h1>
+          <p>
+            I’m Benmar Ramirez — Front-End Developer Intern and Full-Stack Developer based in Manila.
+            I build interaction-first experiences, scalable product architecture, and automation-backed workflows.
+          </p>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="cube-wrap">
+            <div class="cube">
+              <span class="face front"></span><span class="face back"></span><span class="face right"></span>
+              <span class="face left"></span><span class="face top"></span><span class="face bottom"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container section reveal" id="about">
+        <h2 class="section-title">About</h2>
+        <div class="code-panel card">
+          <div class="code-title">benmar.profile.ts</div>
+          <div class="code-row"><span class="ln">01</span><span class="code">class <b>BenmarRamirez</b> {'{'}</span></div>
+          <div class="code-row"><span class="ln">02</span><span class="code">&nbsp;&nbsp;role = <em>'Front-End Developer Intern / Full-Stack Developer'</em></span></div>
+          <div class="code-row"><span class="ln">03</span><span class="code">&nbsp;&nbsp;location = <em>'Manila, Philippines'</em></span></div>
+          <div class="code-row"><span class="ln">04</span><span class="code">&nbsp;&nbsp;education = <em>'BS Computer Science (Software Technology)'</em></span></div>
+          <div class="code-row"><span class="ln">05</span><span class="code">&nbsp;&nbsp;expectedGraduation = <em>'April 2026'</em></span></div>
+          <div class="code-row"><span class="ln">06</span><span class="code">&nbsp;&nbsp;summary = <em>'Builds edtech, CMS, backend, and automation workflows'</em></span></div>
+          <div class="code-row"><span class="ln">07</span><span class="code">&nbsp;&nbsp;stack = [<em>'HTML/CSS/JS'</em>, <em>'React'</em>, <em>'Angular'</em>, <em>'Spring Boot'</em>, <em>'WordPress'</em>, <em>'MySQL'</em>]</span></div>
+          <div class="code-row"><span class="ln">08</span><span class="code">&nbsp;&nbsp;automation = [<em>'n8n'</em>, <em>'Zapier'</em>, <em>'API/Webhooks'</em>]</span></div>
+          <div class="code-row"><span class="ln">09</span><span class="code">&nbsp;&nbsp;hobbies = [<em>'League Coaching'</em>, <em>'Swimming'</em>, <em>'Pixel Art'</em>]</span></div>
+          <div class="code-row"><span class="ln">10</span><span class="code">&nbsp;&nbsp;experience = {'{'}</span></div>
+          <div class="code-row"><span class="ln">11</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;scintillant: <em>'Mind map + notation integration'</em>,</span></div>
+          <div class="code-row"><span class="ln">12</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;freelance: <em>'SEO-ready React/WordPress sites'</em>,</span></div>
+          <div class="code-row"><span class="ln">13</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;viq: <em>'Transcription & caption quality'</em>,</span></div>
+          <div class="code-row"><span class="ln">14</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;uaap: <em>'Esports operations manager'</em>,</span></div>
+          <div class="code-row"><span class="ln">15</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;ihd: <em>'React + TypeScript corporate build'</em>,</span></div>
+          <div class="code-row"><span class="ln">16</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;rjb: <em>'Digital asset analytics'</em></span></div>
+          <div class="code-row"><span class="ln">17</span><span class="code">&nbsp;&nbsp;{'}'}</span></div>
+          <div class="code-row"><span class="ln">18</span><span class="code">&nbsp;&nbsp;links = [<em>'LinkedIn'</em>, <em>'GitHub'</em>, <em>'Resume'</em>, <em>'Email'</em>]</span></div>
+          <div class="code-row"><span class="ln">19</span><span class="code">{'}'}</span></div>
+        </div>
+      </section>
+
+      <section class="container section reveal" id="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="timeline">
+          <article class="card"><h3>Scintillant Ventures <span>2026–Present</span></h3><p>Front-End Intern building education platform features, including dynamic visual learning interfaces.</p></article>
+          <article class="card"><h3>Freelance Web Developer <span>2024–Present</span></h3><p>Built and optimized websites with React, Angular, and WordPress with strong SEO and conversion foundations.</p></article>
+          <article class="card"><h3>iHD Philippines <span>2025</span></h3><p>Developed modular React + TypeScript corporate pages with maintainable component architecture.</p></article>
+        </div>
+      </section>
+
+      <section class="container section reveal" id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="project-constellation">
+          <article class="project-node n1"><div class="node-label"><span>05</span><strong>Saffron POS</strong></div><div class="thumb t1"></div><div class="meta"><h4>Saffron POS</h4><p>Java · Spring Boot · MySQL</p></div></article>
+          <article class="project-node n2"><div class="node-label"><span>06</span><strong>Arrows Express</strong></div><div class="thumb t2"></div><div class="meta"><h4>Arrows Express</h4><p>Spring Boot · MySQL · RBAC</p></div></article>
+          <article class="project-node n3"><div class="node-label"><span>07</span><strong>StockSmart</strong></div><div class="thumb t3"></div><div class="meta"><h4>StockSmart</h4><p>Java · Android SDK · SQLite</p></div></article>
+          <article class="project-node n4"><div class="node-label"><span>08</span><strong>Beef Tapa</strong></div><div class="thumb t4"></div><div class="meta"><h4>Beef Tapa Site</h4><p>WordPress · SEO · Front-End</p></div></article>
+          <article class="project-node n5"><div class="node-label"><span>09</span><strong>DLSU Shuttle</strong></div><div class="thumb t5"></div><div class="meta"><h4>DLSU Shuttle</h4><p>JavaScript · Web App</p></div></article>
+          <article class="project-node n6"><div class="node-label"><span>010</span><strong>iHD Website</strong></div><div class="thumb t6"></div><div class="meta"><h4>iHD Website</h4><p>React · TypeScript · Tailwind</p></div></article>
+          <article class="project-node n7"><div class="node-label"><span>011</span><strong>Metro Clinic</strong></div><div class="thumb t7"></div><div class="meta"><h4>Metro Clinic WP</h4><p>RankMath · Cache · CPT · Forms</p></div></article>
+          <article class="project-node n8"><div class="node-label"><span>012</span><strong>Automation Flows</strong></div><div class="thumb t8"></div><div class="meta"><h4>Ops Automation</h4><p>n8n · Zapier · Webhooks</p></div></article>
+        </div>
+      </section>
+
+      <section class="container section reveal" id="contact">
+        <div class="card cta">
+          <h2>Want to build in the present, for the future?</h2>
+          <p>I’m open for freelance work and collaborations for web products, business sites, and automation systems.</p>
+          <a class="cta-link" href="mailto:benmarsimramirez@gmail.com">benmarsimramirez@gmail.com</a>
+        </div>
+      </section>
+    </main>
+
+    <button class="scroll-top" aria-label="Scroll to top">↑</button>
+    <script src="script.js"></script>
+  </body>
+</html>
