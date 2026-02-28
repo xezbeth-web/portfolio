@@ -6,129 +6,199 @@ const revealTargets = document.querySelectorAll('.reveal');
 const scrollBtn = document.querySelector('.scroll-top');
 const cursorDot = document.querySelector('.cursor-dot');
 const cursorRing = document.querySelector('.cursor-ring');
+const heroWord = document.getElementById('hero-word');
+const bgSquares = [...document.querySelectorAll('.bg-square')];
 
-if (cursorDot && cursorRing) {
+const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
+
+if (cursorDot && cursorRing && hasFinePointer) {
   let dotX = window.innerWidth / 2;
   let dotY = window.innerHeight / 2;
   let ringX = dotX;
   let ringY = dotY;
 
+  const placeDot = () => {
+    cursorDot.style.left = `${dotX}px`;
+    cursorDot.style.top = `${dotY}px`;
+  };
+
+  const placeRing = () => {
+    cursorRing.style.left = `${ringX}px`;
+    cursorRing.style.top = `${ringY}px`;
+  };
+
   window.addEventListener('mousemove', event => {
     dotX = event.clientX;
     dotY = event.clientY;
-    cursorDot.style.transform = `translate(${dotX}px, ${dotY}px)`;
+    placeDot();
   });
 
-  function animateRing() {
-    ringX += (dotX - ringX) * 0.2;
-    ringY += (dotY - ringY) * 0.2;
-    cursorRing.style.transform = `translate(${ringX}px, ${ringY}px)`;
+  const animateRing = () => {
+    ringX += (dotX - ringX) * 0.22;
+    ringY += (dotY - ringY) * 0.22;
+    placeRing();
     requestAnimationFrame(animateRing);
-  }
+  };
+
+  placeDot();
+  placeRing();
   animateRing();
 
-  const interactiveElements = document.querySelectorAll('a, button, .code-row, .project-showcase, .hover-target');
+  const interactiveElements = document.querySelectorAll('a, button, .project-showcase');
   interactiveElements.forEach(element => {
     element.addEventListener('mouseenter', () => {
       document.body.classList.add('cursor-hover');
-      if (element.classList.contains('project-showcase') || element.classList.contains('hover-target')) {
+      if (element.classList.contains('project-showcase')) {
         document.body.classList.add('cursor-project');
       }
     });
+
     element.addEventListener('mouseleave', () => {
       document.body.classList.remove('cursor-hover');
       document.body.classList.remove('cursor-project');
     });
   });
+
+  window.addEventListener('mouseleave', () => {
+    document.body.classList.remove('cursor-hover');
+    document.body.classList.remove('cursor-project');
+  });
 }
 
-if (cursorDot && cursorRing) {
-  let dotX = window.innerWidth / 2;
-  let dotY = window.innerHeight / 2;
-  let ringX = dotX;
-  let ringY = dotY;
+if (bgSquares.length > 0) {
+  let parallaxQueued = false;
 
-  window.addEventListener('mousemove', event => {
-    dotX = event.clientX;
-    dotY = event.clientY;
-    cursorDot.style.transform = `translate(${dotX}px, ${dotY}px)`;
-  });
+  const updateSquares = () => {
+    const scrollY = window.scrollY || 0;
 
-  function animateRing() {
-    ringX += (dotX - ringX) * 0.2;
-    ringY += (dotY - ringY) * 0.2;
-    cursorRing.style.transform = `translate(${ringX}px, ${ringY}px)`;
-    requestAnimationFrame(animateRing);
-  }
-  animateRing();
+    bgSquares.forEach((square, index) => {
+      const speed = Number(square.dataset.speed || 0.08);
+      const driftY = scrollY * speed;
+      const swayX = Math.sin(scrollY / 220 + index * 1.1) * 14;
+      const baseTransform = square.dataset.base || '';
+      square.style.transform = `translate3d(${swayX.toFixed(2)}px, ${driftY.toFixed(2)}px, 0) ${baseTransform}`;
+    });
 
-  const interactiveElements = document.querySelectorAll('a, button, .project-showcase');
-  interactiveElements.forEach(element => {
-    element.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-    element.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
-  });
+    parallaxQueued = false;
+  };
+
+  const queueSquareUpdate = () => {
+    if (parallaxQueued) return;
+    parallaxQueued = true;
+    requestAnimationFrame(updateSquares);
+  };
+
+  window.addEventListener('scroll', queueSquareUpdate, { passive: true });
+  window.addEventListener('resize', queueSquareUpdate);
+  updateSquares();
 }
 
 if (menuToggle && nav) {
   menuToggle.addEventListener('click', () => nav.classList.toggle('open'));
 }
 
-const sectionObserver = new IntersectionObserver(entries => {
-  const active = entries.filter(e => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-  if (!active) return;
-  const id = active.target.id;
-  navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${id}`));
-}, { threshold: [0.3, 0.55, 0.75] });
-sections.forEach(section => sectionObserver.observe(section));
-
-const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    if (nav) nav.classList.remove('open');
   });
-}, { threshold: 0.15 });
-revealTargets.forEach(node => revealObserver.observe(node));
+});
+
+if ('IntersectionObserver' in window) {
+  // rootMargin creates a detection band: top 20%–45% of viewport.
+  // Whichever section enters that band becomes active — far more accurate
+  // than threshold-only detection.
+  const sectionObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id;
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+        });
+      });
+    },
+    { rootMargin: '-18% 0px -78% 0px', threshold: 0 }
+  );
+
+  sections.forEach(section => sectionObserver.observe(section));
+
+  const revealObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  revealTargets.forEach(node => revealObserver.observe(node));
+} else {
+  revealTargets.forEach(node => node.classList.add('visible'));
+}
 
 if (scrollBtn) {
   window.addEventListener('scroll', () => {
     scrollBtn.classList.toggle('visible', window.scrollY > 320);
   });
+
   scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 }
 
-const trailCanvas = document.getElementById('trail-canvas');
-const ctx = trailCanvas ? trailCanvas.getContext('2d') : null;
-let points = [];
+if (heroWord) {
+  const words = (heroWord.dataset.words || '')
+    .split(',')
+    .map(word => word.trim())
+    .filter(Boolean);
 
-function resizeCanvas() {
-  if (!trailCanvas) return;
-  trailCanvas.width = window.innerWidth;
-  trailCanvas.height = window.innerHeight;
-}
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
+  if (words.length > 0) {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let wordIndex = 0;
+    heroWord.textContent = words[wordIndex];
+    heroWord.dataset.text = words[wordIndex];
 
-window.addEventListener('mousemove', e => {
-  points.push({ x: e.clientX, y: e.clientY, life: 1 });
-  if (points.length > 90) points.shift();
-});
+    const cycleWord = () => {
+      wordIndex = (wordIndex + 1) % words.length;
+      const nextWord = words[wordIndex];
+      heroWord.textContent = nextWord;
+      heroWord.dataset.text = nextWord;
 
-function renderTrail() {
-  if (!ctx || !trailCanvas) return;
-  ctx.clearRect(0, 0, trailCanvas.width, trailCanvas.height);
-  ctx.beginPath();
-  for (let i = 0; i < points.length; i += 1) {
-    const p = points[i];
-    if (i === 0) ctx.moveTo(p.x, p.y);
-    else ctx.lineTo(p.x, p.y);
-    p.life -= 0.014;
+      if (!reducedMotion) {
+        heroWord.classList.remove('glitch');
+        // Force reflow so repeated class adds retrigger animation.
+        void heroWord.offsetWidth;
+        heroWord.classList.add('glitch');
+      }
+
+      const delay = reducedMotion ? 2400 : 1250 + Math.floor(Math.random() * 650);
+      setTimeout(cycleWord, delay);
+    };
+
+    setTimeout(cycleWord, reducedMotion ? 1800 : 1200);
   }
-  points = points.filter(p => p.life > 0);
-  const grad = ctx.createLinearGradient(0, 0, trailCanvas.width, trailCanvas.height);
-  grad.addColorStop(0, 'rgba(47,120,255,0.45)');
-  grad.addColorStop(1, 'rgba(122,91,255,0.25)');
-  ctx.strokeStyle = grad;
-  ctx.lineWidth = 2;
-  ctx.stroke();
-  requestAnimationFrame(renderTrail);
 }
-renderTrail();
+
+// 3-D tilt — whole card (text + image together)
+if (window.matchMedia('(pointer: fine)').matches) {
+  document.querySelectorAll('.project-showcase').forEach(card => {
+    const tilt = card.querySelector('.project-card-tilt');
+    if (!tilt) return;
+
+    card.addEventListener('mouseenter', () => {
+      tilt.style.transition = 'transform 0.14s ease, box-shadow 0.18s ease';
+    });
+
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const xRel = (e.clientX - rect.left)  / rect.width  - 0.5;  // -0.5 … 0.5
+      const yRel = (e.clientY - rect.top)   / rect.height - 0.5;
+      const rotY =  xRel * 16;   // ±8 deg left/right
+      const rotX = -yRel * 10;   // ±5 deg up/down
+      tilt.style.transform = `rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg) scale(1.02)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      tilt.style.transition = 'transform 0.65s cubic-bezier(0.22,1,0.36,1), box-shadow 0.55s ease';
+      tilt.style.transform = '';
+    });
+  });
+}

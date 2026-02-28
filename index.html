@@ -7,13 +7,15 @@
     <meta name="description" content="Front-end developer portfolio focused on modern UI, interactions, and performance." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="cursor-dot" aria-hidden="true"></div>
     <div class="cursor-ring" aria-hidden="true"></div>
-    <canvas id="trail-canvas" aria-hidden="true"></canvas>
     <div class="grid-overlay" aria-hidden="true"></div>
 
     <aside class="social-rail" aria-label="Social links">
@@ -24,13 +26,13 @@
 
     <header class="topbar" id="top">
       <div class="container topbar__inner">
-        <a class="brand" href="#home" aria-label="Homepage brand"><span class="brand-short">BR</span><span class="brand-hover">XW</span></a>
-        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+        <a class="brand" href="#home" aria-label="Homepage brand"><span class="brand-short">BR</span><span class="brand-hover">xezbeth-web</span></a>
+        <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
         <nav class="nav">
           <a href="#about">About</a>
           <a href="#experience">Experience</a>
           <a href="#projects">Projects</a>
-          <a href="#stack">Stack</a>
+          <a href="#skills">Skills</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>
@@ -38,13 +40,64 @@
 
     <main>
       <section class="hero container reveal" id="home">
-        <p class="hero-kicker">OPEN TO INTERNSHIPS · GRADUATING APRIL 2026 · DLSU CS</p>
-        <h1>Benmar Ramirez<br /><span>Frontend Developer</span></h1>
-        <p class="hero-subtitle">I build clean, high-converting interfaces and scalable frontend systems focused on performance, interaction, and user experience.</p>
-        <div class="hero-actions">
-          <a class="btn btn--primary" href="#projects">View Projects ↓</a>
-          <a class="btn" href="#contact">Get In Touch</a>
-          <a class="btn btn--accent" href="https://drive.google.com/file/d/13a4_P_phCve5-CR53nf-YvCSuYZga7jw/view?usp=sharing" target="_blank" rel="noreferrer">↓ Resume</a>
+        <div class="hero-guide" aria-hidden="true">
+        </div>
+
+        <!-- 3D floating scene objects -->
+        <div class="hero-float hero-float--a" aria-hidden="true">
+          <div class="float-cube">
+            <div class="face face--front"></div>
+            <div class="face face--back"></div>
+            <div class="face face--left"></div>
+            <div class="face face--right"></div>
+            <div class="face face--top"></div>
+            <div class="face face--bottom"></div>
+          </div>
+        </div>
+        <div class="hero-float hero-float--b" aria-hidden="true">
+          <div class="float-pyramid-b">
+            <div class="pyr-b pyr-b--1"></div>
+            <div class="pyr-b pyr-b--2"></div>
+            <div class="pyr-b pyr-b--3"></div>
+            <div class="pyr-b pyr-b--4"></div>
+          </div>
+        </div>
+        <div class="hero-float hero-float--c" aria-hidden="true">
+          <div class="float-cube-c">
+            <div class="face-c face-c--front"></div>
+            <div class="face-c face-c--back"></div>
+            <div class="face-c face-c--left"></div>
+            <div class="face-c face-c--right"></div>
+            <div class="face-c face-c--top"></div>
+            <div class="face-c face-c--bottom"></div>
+          </div>
+        </div>
+
+        <div class="hero-copy">
+          <p class="hero-kicker">OPEN TO INTERNSHIPS - GRADUATING APRIL 2026 - DLSU CS</p>
+          <h1 class="hero-title">
+            <span>Hi, my name is</span>
+            <strong>Benmar Ramirez</strong>
+          </h1>
+          <div class="hero-lead-fixed">
+            <p class="hero-lead">
+              <span class="hero-lead__text">I design and develop</span>
+              <span class="hero-word-wrap">
+                <span id="hero-word" class="hero-word" data-words="interfaces,products,web apps,frontend systems,landing pages">interfaces</span>
+              </span>
+            </p>
+          </div>
+          <p class="hero-note">Let me show you...</p>
+          <div class="hero-actions">
+            <a class="btn btn--primary" href="#contact">Get in Touch</a>
+            <a
+              class="btn btn--accent"
+              href="https://drive.google.com/file/d/13a4_P_phCve5-CR53nf-YvCSuYZga7jw/view?usp=sharing"
+              target="_blank"
+              rel="noreferrer"
+              >Resume</a
+            >
+          </div>
         </div>
       </section>
 
@@ -53,80 +106,184 @@
         <div class="code-panel card">
           <div class="code-title">About /&gt;</div>
           <div class="code-row"><span class="ln">01</span><span class="code">class <b>BenmarRamirez</b> {'{'}</span></div>
-          <div class="code-row"><span class="ln">02</span><span class="code">&nbsp;&nbsp;// Front-end focused developer building interaction-first interfaces.</span></div>
-          <div class="code-row"><span class="ln">03</span><span class="code">&nbsp;&nbsp;role = <em>'Front-End Developer'</em></span></div>
-          <div class="code-row"><span class="ln">04</span><span class="code">&nbsp;&nbsp;focus = [<em>'UI Systems'</em>, <em>'Accessibility'</em>, <em>'Responsive Design'</em>]</span></div>
-          <div class="code-row"><span class="ln">05</span><span class="code">&nbsp;&nbsp;stack = [<em>'React'</em>, <em>'Angular'</em>, <em>'TypeScript'</em>, <em>'CSS'</em>]</span></div>
-          <div class="code-row"><span class="ln">06</span><span class="code">&nbsp;&nbsp;location = <em>'Manila, Philippines'</em></span></div>
-          <div class="code-row"><span class="ln">07</span><span class="code">&nbsp;&nbsp;email = <em>'benmarsimramirez@gmail.com'</em></span></div>
-          <div class="code-row"><span class="ln">08</span><span class="code">{'}'}</span></div>
+          <div class="code-row"><span class="ln">02</span><span class="code">&nbsp;&nbsp;// I can, because I did.</span></div>
+          <div class="code-row"><span class="ln">03</span><span class="code">&nbsp;&nbsp;// My frontend skill stack keeps expanding with real project work.</span></div>
+          <div class="code-row"><span class="ln">04</span><span class="code">&nbsp;&nbsp;constructor() {'{'}</span></div>
+          <div class="code-row"><span class="ln">05</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;name = <em>'Benmar Ramirez'</em></span></div>
+          <div class="code-row"><span class="ln">06</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;role = <em>'Front-End Developer'</em></span></div>
+          <div class="code-row"><span class="ln">07</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;email = <em>'benmarsimramirez@gmail.com'</em></span></div>
+          <div class="code-row"><span class="ln">08</span><span class="code">&nbsp;&nbsp;{'}'}</span></div>
+          <div class="code-row"><span class="ln">09</span><span class="code">&nbsp;&nbsp;focus() {'{'}</span></div>
+          <div class="code-row"><span class="ln">10</span><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;return [<em>'Scalable UI'</em>, <em>'Accessibility'</em>, <em>'Responsive Systems'</em>]</span></div>
+          <div class="code-row"><span class="ln">11</span><span class="code">&nbsp;&nbsp;{'}'}</span></div>
+          <div class="code-row"><span class="ln">12</span><span class="code">{'}'}</span></div>
         </div>
       </section>
 
       <section class="container section reveal" id="experience">
         <h2 class="section-title">Experience</h2>
         <div class="timeline">
-          <article class="card"><h3>Front-End Developer Intern · Scintillant Ventures <span>2026 – Present</span></h3><p>Building reusable front-end modules and interactive learning interfaces for an education platform.</p></article>
-          <article class="card"><h3>Freelance Front-End Web Developer <span>2024 – Present</span></h3><p>Delivered high-converting business and landing pages using React, Angular, and WordPress.</p></article>
-          <article class="card"><h3>Front-End Developer · iHD Philippines <span>2025 – 2025</span></h3><p>Shipped responsive React + TypeScript sections using modular and maintainable components.</p></article>
-          <article class="card"><h3>Transcription & Captioning Specialist · VIQ Solutions <span>2024 – 2025</span></h3><p>Produced accurate, accessible transcripts and subtitle outputs under strict quality standards.</p></article>
+          <article class="card">
+            <h3>Front-End Developer Intern - Scintillant Ventures <span>2026 - Present</span></h3>
+            <p>Building reusable front-end modules and interactive learning interfaces for an education platform.</p>
+          </article>
+          <article class="card">
+            <h3>Freelance Front-End Web Developer <span>2024 - Present</span></h3>
+            <p>Delivered high-converting business and landing pages using React, Angular, and WordPress.</p>
+          </article>
+          <article class="card">
+            <h3>Front-End Developer - iHD Philippines <span>2025 - 2025</span></h3>
+            <p>Shipped responsive React + TypeScript sections using modular and maintainable components.</p>
+          </article>
+          <article class="card">
+            <h3>Transcription and Captioning Specialist - VIQ Solutions <span>2024 - 2025</span></h3>
+            <p>Produced accurate, accessible transcripts and subtitle outputs under strict quality standards.</p>
+          </article>
         </div>
       </section>
 
       <section class="container section reveal" id="projects">
         <h2 class="section-title">Projects</h2>
         <div class="projects-grid">
-          <article class="project-showcase hover-target">
-            <div class="project-info"><h3>Mail-Cat.cc</h3><span>012 →</span></div>
-            <div class="project-media media-1" aria-label="project preview"></div>
+
+          <article class="project-showcase">
+            <div class="project-card-tilt">
+              <div class="project-info">
+                <h3>Mail-Cat.cc</h3>
+                <div class="project-line"></div>
+                <div class="project-meta">
+                  <span class="project-num">01</span>
+                  <span class="project-arrow">→</span>
+                </div>
+              </div>
+              <div class="project-media-wrap">
+                <div class="project-media media-1" aria-label="project preview"></div>
+              </div>
+            </div>
           </article>
-          <article class="project-showcase hover-target">
-            <div class="project-info"><h3>Saffron POS</h3><span>013 →</span></div>
-            <div class="project-media media-2" aria-label="project preview"></div>
+
+          <article class="project-showcase">
+            <div class="project-card-tilt">
+              <div class="project-info">
+                <h3>Saffron POS</h3>
+                <div class="project-line"></div>
+                <div class="project-meta">
+                  <span class="project-num">02</span>
+                  <span class="project-arrow">→</span>
+                </div>
+              </div>
+              <div class="project-media-wrap">
+                <div class="project-media media-2" aria-label="project preview"></div>
+              </div>
+            </div>
           </article>
-          <article class="project-showcase hover-target">
-            <div class="project-info"><h3>Arrows Express</h3><span>014 →</span></div>
-            <div class="project-media media-3" aria-label="project preview"></div>
+
+          <article class="project-showcase">
+            <div class="project-card-tilt">
+              <div class="project-info">
+                <h3>Arrows Express</h3>
+                <div class="project-line"></div>
+                <div class="project-meta">
+                  <span class="project-num">03</span>
+                  <span class="project-arrow">→</span>
+                </div>
+              </div>
+              <div class="project-media-wrap">
+                <div class="project-media media-3" aria-label="project preview"></div>
+              </div>
+            </div>
           </article>
+
+          <article class="project-showcase">
+            <div class="project-card-tilt">
+              <div class="project-info">
+                <h3>DLSU Scheduler</h3>
+                <div class="project-line"></div>
+                <div class="project-meta">
+                  <span class="project-num">04</span>
+                  <span class="project-arrow">→</span>
+                </div>
+              </div>
+              <div class="project-media-wrap">
+                <div class="project-media media-4" aria-label="project preview"></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-showcase">
+            <div class="project-card-tilt">
+              <div class="project-info">
+                <h3>DevLog UI</h3>
+                <div class="project-line"></div>
+                <div class="project-meta">
+                  <span class="project-num">05</span>
+                  <span class="project-arrow">→</span>
+                </div>
+              </div>
+              <div class="project-media-wrap">
+                <div class="project-media media-5" aria-label="project preview"></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-showcase">
+            <div class="project-card-tilt">
+              <div class="project-info">
+                <h3>Pixel Studio</h3>
+                <div class="project-line"></div>
+                <div class="project-meta">
+                  <span class="project-num">06</span>
+                  <span class="project-arrow">→</span>
+                </div>
+              </div>
+              <div class="project-media-wrap">
+                <div class="project-media media-6" aria-label="project preview"></div>
+              </div>
+            </div>
+          </article>
+
         </div>
       </section>
 
-      <section class="section reveal" id="stack">
-        <h2 class="section-title container">Skills Marquee</h2>
+      <section class="section reveal" id="skills">
+        <h2 class="section-title section-title--center container">Skills</h2>
         <div class="marquee-full">
           <div class="marquee__track">
-            <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" /></span>
-            <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular" /></span>
-            <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" /></span>
-            <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" /></span>
-            <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" /></span>
-            <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" /></span>
-            <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind" /></span>
-            <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg" alt="WordPress" /></span>
-            <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot" /></span>
-            <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" /></span>
-            <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" /></span>
-
-            <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" /></span>
-            <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular" /></span>
-            <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" /></span>
-            <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" /></span>
-            <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" /></span>
-            <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" /></span>
-            <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind" /></span>
-            <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg" alt="WordPress" /></span>
-            <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot" /></span>
-            <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" /></span>
-            <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" /></span>
+            <div class="marquee__group">
+              <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" /></span>
+              <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular" /></span>
+              <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" /></span>
+              <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" /></span>
+              <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" /></span>
+              <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" /></span>
+              <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind" /></span>
+              <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg" alt="WordPress" /></span>
+              <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot" /></span>
+              <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" /></span>
+              <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" /></span>
+            </div>
+            <div class="marquee__group" aria-hidden="true">
+              <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" /></span>
+              <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular" /></span>
+              <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" /></span>
+              <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" /></span>
+              <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" /></span>
+              <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" /></span>
+              <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind" /></span>
+              <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg" alt="WordPress" /></span>
+              <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot" /></span>
+              <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" /></span>
+              <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" /></span>
+            </div>
           </div>
         </div>
       </section>
 
       <section class="container section reveal" id="contact">
         <div class="card cta">
-          <p class="cta-kicker">Let’s build your next frontend product</p>
+          <p class="cta-kicker">Let's build your next frontend product</p>
           <h2>Need a fast, polished, and user-first interface?</h2>
-          <p>I’m available for freelance and contract frontend work — landing pages, business websites, and web app UI implementation.</p>
+          <p>I'm available for freelance and contract frontend work - landing pages, business websites, and web app UI implementation.</p>
           <div class="cta-actions">
             <a class="btn" href="mailto:benmarsimramirez@gmail.com">Email Me</a>
             <a class="btn" href="https://github.com/xezbeth-web" target="_blank" rel="noreferrer">GitHub</a>
@@ -137,18 +294,11 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>© 2026 BR · Front-End Developer</p>
-        <nav class="footer-nav">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#experience">Experience</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </nav>
+        <p>Built with HTML, CSS &amp; JavaScript &nbsp;·&nbsp; &copy; 2026 xezbeth-web</p>
       </div>
     </footer>
 
-    <button class="scroll-top" aria-label="Scroll to top">↑</button>
+    <button class="scroll-top" aria-label="Scroll to top">&#8593;</button>
     <script src="script.js"></script>
   </body>
 </html>
