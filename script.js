@@ -7,37 +7,40 @@ const scrollBtn = document.querySelector('.scroll-top');
 const cursorDot = document.querySelector('.cursor-dot');
 const cursorRing = document.querySelector('.cursor-ring');
 
-const typingVerb = document.getElementById('typing-verb');
-const verbs = ['Building', 'Creating', 'Designing'];
-let verbIndex = 0;
-let charIndex = verbs[0].length;
-let deleting = false;
+if (cursorDot && cursorRing) {
+  let dotX = window.innerWidth / 2;
+  let dotY = window.innerHeight / 2;
+  let ringX = dotX;
+  let ringY = dotY;
 
-function tickTyping() {
-  if (!typingVerb) return;
-  const word = verbs[verbIndex];
+  window.addEventListener('mousemove', event => {
+    dotX = event.clientX;
+    dotY = event.clientY;
+    cursorDot.style.transform = `translate(${dotX}px, ${dotY}px)`;
+  });
 
-  if (!deleting) {
-    charIndex += 1;
-    if (charIndex >= word.length) {
-      charIndex = word.length;
-      deleting = true;
-      setTimeout(tickTyping, 900);
-      return;
-    }
-  } else {
-    charIndex -= 1;
-    if (charIndex <= 0) {
-      deleting = false;
-      verbIndex = (verbIndex + 1) % verbs.length;
-      charIndex = 0;
-    }
+  function animateRing() {
+    ringX += (dotX - ringX) * 0.2;
+    ringY += (dotY - ringY) * 0.2;
+    cursorRing.style.transform = `translate(${ringX}px, ${ringY}px)`;
+    requestAnimationFrame(animateRing);
   }
+  animateRing();
 
-  typingVerb.textContent = word.slice(0, charIndex);
-  setTimeout(tickTyping, deleting ? 70 : 100);
+  const interactiveElements = document.querySelectorAll('a, button, .code-row, .project-showcase, .hover-target');
+  interactiveElements.forEach(element => {
+    element.addEventListener('mouseenter', () => {
+      document.body.classList.add('cursor-hover');
+      if (element.classList.contains('project-showcase') || element.classList.contains('hover-target')) {
+        document.body.classList.add('cursor-project');
+      }
+    });
+    element.addEventListener('mouseleave', () => {
+      document.body.classList.remove('cursor-hover');
+      document.body.classList.remove('cursor-project');
+    });
+  });
 }
-if (typingVerb) setTimeout(tickTyping, 900);
 
 if (cursorDot && cursorRing) {
   let dotX = window.innerWidth / 2;
@@ -121,8 +124,8 @@ function renderTrail() {
   }
   points = points.filter(p => p.life > 0);
   const grad = ctx.createLinearGradient(0, 0, trailCanvas.width, trailCanvas.height);
-  grad.addColorStop(0, 'rgba(47,120,255,0.40)');
-  grad.addColorStop(1, 'rgba(122,91,255,0.20)');
+  grad.addColorStop(0, 'rgba(47,120,255,0.45)');
+  grad.addColorStop(1, 'rgba(122,91,255,0.25)');
   ctx.strokeStyle = grad;
   ctx.lineWidth = 2;
   ctx.stroke();
